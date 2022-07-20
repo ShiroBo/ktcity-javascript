@@ -23,6 +23,6 @@ console.log(!amIWrong)// false
 
 // == loose equality  vs === strict equality
  
-
+1
 
 
