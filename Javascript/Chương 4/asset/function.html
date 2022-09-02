@@ -5,8 +5,116 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+       
 </head>
 <body>
+    <script>
+        // function (hàm)
+        // Khai báo function
+        // cú pháp (Syntax) function functionName(prarametrs,parameters){
+        // yourcode
+        // }
+        // parameters : tham số
+        // đề bài là viết hàm tính tổng 2 số a và b
+        function sum(a=0,b=0){
+            // console.log("is it working?");
+            // console.log(a+b)
+            const tong =a +b;
+            return tong;
+            // return 
+            // không có return thì kết quả của hàm sẽ trả về là undefined
+        }
+        // function sum(parameter = defaultValue){}
+        console.log(sum(500,1000));
+        // invoke function sum(arguments) đối số
+        // Lưu function vào 1 biến rồi gọi sau này 
+        function add(a=0,b=0){
+            console.log(a+b)
+            return a + b;
+        }
+        // add(500,1000)
+        const sum2 = add;// gán function add cho biến sum2 nhưng chưa được gọi
+        // sum2(300,400);
+        // tham số là function
+        // tính trung bình của a và b => (a+b)/2\
+        // function  đặt biến thì gọi là fn
+        function average (a,b,fn){
+            const total = fn(a,b);
+            return total/2;
+        }
+        let result =average(200,300,sum2);
+        console.log(`result ${result}`)
+
+        // function declaration
+        /**/
+        // Anonymous function(function expression)
+        // không bị hoisting
+        const logName = function(){
+            console.log("YourName");
+        }
+        logName();
+        //  IFFE-> immmediately invoked function execution (Viết xong gọi ra luôn)
+        
+        (function(){
+            console.log("helloo")
+        })();
+        // {Hay vào phỏng vấn}
+        // Scope (phạm vi của biến đến được)
+        // Global scope,function scope
+        let myName = "Bình 11002";// global scope(sử dụng cho toàn bộ)
+        function logYouName(){
+            let myName2=myName;// function scope (chỉ sử dụng được trong function)
+            console.log(myName2)
+        }
+        logYouName();
+        console.log(myName);
+        // block scope
+        // if(2>1){
+        //     let message = "hello Bình"
+        //     alert(message)
+        // }
+        // lexical scope (phạm vị của biến)
+        let aNewName="ShiroB";// global scope
+        function sayHello(){
+            let message = "hi";
+            console.log(`${message} ${aNewName}`)
+        }
+        sayHello();
+        // Closure {Phỏng vấn VD}(là nhiều function được lồng vào nhau,cho phép chúng ta truy xuất từ function bên trong ra function bên ngoài)
+        // Function con có thể truy xuất scope của function cha
+        // parent function
+        // function sayHello2(){
+             
+        //     let message ="hihi123";
+        //     function sayhi(){
+        //         console.log(message);
+        //     }
+        //     return sayhi;
+
+        // }
+        // let hello = sayHello2();
+        // hello();
+        function sayhello3(message){
+            return function hiYourName(name){
+                console.log(`${message} ${name}`);
+            };
+        }
+        let hello = sayhello3("welcome to javascript");
+        hello("Closure");
     
+        // Wellcome to javascript Closure
+        function anotherFunction(){
+            let otherMessage ="hello";
+            function sayhi(){    
+                console.log(otherMessage);
+            }
+            return sayhi;
+        } 
+        let calFunc=anotherFunction(); // otherMessage is no longer accessible
+
+        calFunc();// hello
+    </script>
+
+
 </body>
 </html>
