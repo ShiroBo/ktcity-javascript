@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // Viết function(ham) so sánh 2 số a, b tìm ra số lớn hơn
+        // compare (so sánh)
+        function compare(a=0,b=0){
+            if(typeof a !=="number" || typeof b !== "number")
+            {
+                console.log("Please enter a valid number");
+                return 0;
+            }
+            // else if(a>b){
+            //     alert(a);
+            // }else{
+            //     alert(b)
+            // }
+                return Math.max(a,b);
+        }
+        compare("ádasdasdasd");  
+        // 2. In hóa chữ cái đầu trong chữ ví dụ : tuấn => Tuan , Nam -> Nam
+        // capotalize
+        function capotalize(word = ""){
+            if(word.length === 0) return null;
+            // convert to lower case first
+             let newWord = word.toLowerCase().charAt(0).toUpperCase();
+            //  charAt(index);
+            // name -> N am
+            // hello -> slice(0,3) -> hel
+            // hello -> slice(1) ->ello
+            // slice(startIndex,endIndex -1)
+            let otherWord = word.toLowerCase().slice(1);
+           console.log(newWord+otherWord);
+        }
+        // capotalize("HHm")
+        // Viết hàm có sử dụng callback (function là parameter của function khác) in ra kết quả của hàm compare đã viết ở trên 
+        function useCallback(a,b,callback){
+            let max = compare(a,b);
+            callback(max);
+            return 0;
+        }
+        function printMax(number){
+            console.log("Max number is " + number)
+        }
+        console.log(useCallback(500,1000,printMax));
+    </script>
+</body>
+</html>
